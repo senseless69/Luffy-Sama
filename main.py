@@ -315,7 +315,7 @@ def restart_bot():
 
 @client.command(name= 'restart')
 async def restart(ctx):
-  if ctx.author.id == 820952511589646356:
+  if ctx.author.id == OWNER_ID:
     await ctx.send("Restarting bot...")
     restart_bot()
   else:
@@ -327,8 +327,8 @@ async def restart(ctx):
 @client.command(name = "vote",aliases=['v','daily'])
 async def vote(ctx):
   embed = nextcord.Embed(title="Vote for us", description="Vote for us on top.gg and discordbotlist.com and get rewards!",color = nextcord.Color.random())
-  embed.add_field(name="Top.gg", value="[Click here](https://top.gg/bot/1172404943353827348/vote)")
-  embed.add_field(name="Discordbotlist.com", value="[Click here](https://discordbotlist.com/bots/luffy-sama/upvote)")
+  embed.add_field(name="Top.gg", value="[Click here](https://top.gg/bot/CLIENT_ID/vote)")
+  embed.add_field(name="Discordbotlist.com", value="[Click here](https://discordbotlist.com/bots/Client-name/upvote)")
   
   await ctx.send(embed=embed)
 
