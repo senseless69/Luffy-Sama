@@ -5,14 +5,14 @@ from bhbotlist import bhbotlist
 import aiohttp # Use `pip install aiohttp` to install
 import topgg
 from botlistpy.helpers import SyncBotClient
-dbl_token = os.environ['dbl_token']
+dbl_token = "TOKEN"
 class StatsUpload(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
     self.VoidUpload.start()
     self.update_stats.start()
     self.bot.topggpy = topgg.DBLClient(self.bot, dbl_token)
-    self.client = SyncBotClient(1172404943353827348, "X2STiOQkc3QSDU_-zOYnYISP1@-6AA")
+    self.client = SyncBotClient(CLIENT_ID, "TOKEN")
     
 
   def cog_unload(self):
@@ -26,7 +26,7 @@ class StatsUpload(commands.Cog):
       async with session.post(url = f"https://api.voidbots.net/bot/stats/{self.bot.user.id}",
       headers = {
         "content-type":"application/json",
-        "Authorization": "VOID_svWPcw7UrbKwvy8ThG5jdpvCjlEThB2kay8FElggTcY7GKvP"
+        "Authorization": "TOKEN"
         },
       json = {
         "server_count": len(self.bot.guilds),
