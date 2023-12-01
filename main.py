@@ -59,7 +59,7 @@ client.remove_command('help')
 async def help(interaction: nextcord.Interaction):
   embed = nextcord.Embed(title="**Help**", description="Prefix : @—͟͞͞ Luffy Sama#5630\nChoose a  >category< for the extended version", color=nextcord.Color.random())
   embed.add_field(name="**Moderation**", value=" kick , ban , unban , clear , members")
-  embed.add_field(name="**Fun**", value=" meme, wanted ")
+  embed.add_field(name="**Fun**", value=" /meme, wanted ")
   embed.add_field(name= "**Utility**", value= " ping, enable_profanity(new), disable_profanity(new) ")
   embed.add_field(name="**Economy**", value="start , vote(new) , delete , bal , deposit , withdraw ,  beg , dice , coinflip , slots , open , sell , send , inventory , rob , shop , buy , fish ")
   await interaction.response.send_message(embed=embed, view = dropdown(client, interaction.user.id))
@@ -98,7 +98,7 @@ class helpdropdown(nextcord.ui.Select):
         await interaction.response.send_message(embed=embed)
       elif self.values[0] == "Fun":
         embed = nextcord.Embed(title="**Fun**", description="Fun commands", color=nextcord.Color.random())
-        embed.add_field(name="**meme**", value="Sends a random meme from reddit")
+        embed.add_field(name="**/meme**", value="Sends a random meme from reddit")
         embed.add_field(name="**wanted**", value="Sends a wanted poster of a user")
         
         await interaction.response.send_message(embed=embed) 
@@ -278,7 +278,7 @@ async def on_message(message):
   
 
 
-@client.command(pass_context=True)
+@client.slash_command(name = "meme", description= "Get a meme from reddit")
 async def meme(ctx):
   meme_cycle = cycle(['funnymemes', 'memes','meme' , 'dankmemes', 'sadmemes', 'jokememes', 'comedymemes',
       'youtubememes', 'me_irl', 'wholesomememes', 'MemeEconomy', 'AnimalMemes'
